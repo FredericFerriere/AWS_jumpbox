@@ -6,8 +6,8 @@ to an instance located in the public subnet.
 As a POC, we will ping a website from the instance located in the private subnet.
 
 
-AWS Architecture:
-NAMES         Types
+AWS Architecture: </n>
+NAMES         Types </n>
 JB_VPC        VPC
 JB_IGW        Internet Gateway
 JB_SN_PUBLIC  Subnet
