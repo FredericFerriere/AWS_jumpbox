@@ -50,11 +50,9 @@ Security Groups setup
 
 <table>
      <tr>
-          <td> JB_SG <\td> <td> In <\td> <td> SSH <\td>
-     <\tr>
+          <td> JB_SG <td> In <td> SSH
      <tr>
-          <td> JB_SG <\td> <td> Out <\td> <td> All <\td>
-     <\tr>          
+          <td> JB_SG <td> Out <td> All
 <\table>
 
 ----------------------------------------------------  
