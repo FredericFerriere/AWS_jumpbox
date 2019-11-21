@@ -55,7 +55,7 @@ Security Groups setup
      <tr> <td> FI_SG <td> Out <td> HTTP/HTTPS/ICMPv4 to 0.0.0.0/0
      <tr> <td> NAT_SG <td> In <td> SSH + HTTP/HTTPS/ICMPv4 from FI
      <tr> <td> NAT_SG <td> Out <td> HTTP/HTTPS/ICMPv4 to 0.0.0.0/0
- <\table>
+ <table>
 
 ----------------------------------------------------  
 Testing on Ubuntu  
