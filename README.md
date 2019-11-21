@@ -40,21 +40,21 @@ Steps
 5) Edit Route Tables
 6) Edit Security Groups
 
-Security Groups setup
-JB_SG   In  SSH
-        Out All
-FI_SG   In  SSH (from JB)
-        Out HTTP/HTTPS/ICMPv4 to 0.0.0.0/0
-NAT_SG  In  SSH + HTTP/HTTPS/ICMPv4 from FI
-        Out Out HTTP/HTTPS/ICMPv4 to 0.0.0.0/0
+Security Groups setup  
+JB_SG   In  SSH  
+        Out All  
+FI_SG   In  SSH (from JB)  
+        Out HTTP/HTTPS/ICMPv4 to 0.0.0.0/0  
+NAT_SG  In  SSH + HTTP/HTTPS/ICMPv4 from FI  
+        Out Out HTTP/HTTPS/ICMPv4 to 0.0.0.0/0  
 
-----------------------------------------------------
-Testing on Ubuntu
-Assuming jbkp.pem as the keypair file name
-$ chmod 600 jbkp.pem        //to avoid file permissioning issues
-$ eval $(ssh-agent -s)      //running ssh-agent to add keypair and use JB as an agent to ssh into FI without the need for keypair
+----------------------------------------------------  
+Testing on Ubuntu  
+Assuming jbkp.pem as the keypair file name  
+$ chmod 600 jbkp.pem        //to avoid file permissioning issues  
+$ eval $(ssh-agent -s)      //running ssh-agent to add keypair and use JB as an agent to ssh into FI without the need for keypair  
 $ ssh-add jbkp.pem          
-$ ssh -A ec2-user@<JB Public IP>      //ssh into JB acting as agent to log next into FI (private subnet)
+$ ssh -A ec2-user@<JB Public IP>      //ssh into JB acting as agent to log next into FI (private subnet)  
 $ ssh ec2-user@<FI Private IP>
-$ ping www.aws.com                    //now into FI EC2 Instance, send ping request to check internet access
+$ ping www.aws.com                    //now into FI EC2 Instance, send ping request to check internet access  
 
