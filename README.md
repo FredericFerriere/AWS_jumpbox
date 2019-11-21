@@ -49,11 +49,8 @@ Security Groups setup
 | NAT_SG| Out Out HTTP/HTTPS/ICMPv4 to 0.0.0.0/0 |
 
 <table>
-     <tr>
-          <td> JB_SG <td> In <td> SSH
-     <tr>
-          <td> JB_SG <td> Out <td> All
-<\table>
+     <tr> <td> JB_SG <td> In <td> SSH
+     <tr> <td> JB_SG <td> Out <td> All
 
 ----------------------------------------------------  
 Testing on Ubuntu  
