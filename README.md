@@ -8,21 +8,21 @@ As a POC, we will ping a website from the instance located in the private subnet
 
 AWS Architecture:  
 NAMES         Types  
-JB_VPC        VPC
-JB_IGW        Internet Gateway
-JB_SN_PUBLIC  Subnet
-JB_SN_PRIVATE Subnet
-JB            EC2 Instance (Type Amazon Linux 2 AMI HVM)
-FI            EC2 Instance (Type Amazon Linux 2 AMI HVM)
-NAT           EC2 Instance (Type amzn-ami-upc-nat which you can find in the search textbox in Community AMI section)
-IGW_RT        Route Table
-NAT_RT        Route Table
-JB_SG         Security Group
-FI_SG         Security Group
-NAT_SG        Security Group
+JB_VPC        VPC  
+JB_IGW        Internet Gateway  
+JB_SN_PUBLIC  Subnet  
+JB_SN_PRIVATE Subnet  
+JB            EC2 Instance (Type Amazon Linux 2 AMI HVM)  
+FI            EC2 Instance (Type Amazon Linux 2 AMI HVM)  
+NAT           EC2 Instance (Type amzn-ami-upc-nat which you can find in the search textbox in Community AMI section)  
+IGW_RT        Route Table  
+NAT_RT        Route Table  
+JB_SG         Security Group  
+FI_SG         Security Group  
+NAT_SG        Security Group  
 
 
-IMPORTANT NOTES:
+IMPORTANT NOTES:  
 * Both subnets need to sit in the same Availability Zone
 * the NAT instance has to be of type amzn-ami-upc-nat
 * JB & NAT reside in the public SN
