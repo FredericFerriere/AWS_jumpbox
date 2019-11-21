@@ -46,7 +46,32 @@ Security Groups setup
 | FI_SG | In  SSH (from JB) |
 | FI_SG | Out HTTP/HTTPS/ICMPv4 to 0.0.0.0/0 |
 | NAT_SG | In  SSH + HTTP/HTTPS/ICMPv4 from FI |
-| NAT_SG| Out Out HTTP/HTTPS/ICMPv4 to 0.0.0.0/0 |  
+| NAT_SG| Out Out HTTP/HTTPS/ICMPv4 to 0.0.0.0/0 |
+
+<table>
+     <tr>
+          <td>
+               JB_SG
+          <\td>
+          <td>
+               In
+          <\td>
+          <td>
+               SSH
+          <\td>
+     <\tr>
+     <tr>
+          <td>
+               JB_SG
+          <\td>
+          <td>
+               Out
+          <\td>
+          <td>
+               All
+          <\td>
+     <\tr>          
+<\table>
 
 ----------------------------------------------------  
 Testing on Ubuntu  
