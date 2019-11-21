@@ -51,6 +51,10 @@ Security Groups setup
 <table>
      <tr> <td> JB_SG <td> In <td> SSH
      <tr> <td> JB_SG <td> Out <td> All
+     <tr> <td> FI_SG <td> In <td> SSH (from JB)
+     <tr> <td> FI_SG <td> Out <td> HTTP/HTTPS/ICMPv4 to 0.0.0.0/0
+     <tr> <td> NAT_SG <td> In <td> SSH + HTTP/HTTPS/ICMPv4 from FI
+     <tr> <td> NAT_SG <td> Out <td> HTTP/HTTPS/ICMPv4 to 0.0.0.0/0
 
 ----------------------------------------------------  
 Testing on Ubuntu  
