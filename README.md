@@ -41,12 +41,12 @@ Steps
 6) Edit Security Groups
 
 Security Groups setup  
-JB_SG   In  SSH  
-        Out All  
-FI_SG   In  SSH (from JB)  
-        Out HTTP/HTTPS/ICMPv4 to 0.0.0.0/0  
-NAT_SG  In  SSH + HTTP/HTTPS/ICMPv4 from FI  
-        Out Out HTTP/HTTPS/ICMPv4 to 0.0.0.0/0  
+| JB_SG | In  SSH |
+| JB_SG | Out All |
+| FI_SG | In  SSH (from JB) |
+| FI_SG | Out HTTP/HTTPS/ICMPv4 to 0.0.0.0/0 |
+| NAT_SG | In  SSH + HTTP/HTTPS/ICMPv4 from FI |
+| NAT_SG| Out Out HTTP/HTTPS/ICMPv4 to 0.0.0.0/0 |  
 
 ----------------------------------------------------  
 Testing on Ubuntu  
