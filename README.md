@@ -6,20 +6,23 @@ to an instance located in the public subnet.
 As a POC, we will ping a website from the instance located in the private subnet.
 
 
-AWS Architecture:  
-NAMES         Types  
-JB_VPC        VPC  
-JB_IGW        Internet Gateway  
-JB_SN_PUBLIC  Subnet  
-JB_SN_PRIVATE Subnet  
-JB            EC2 Instance (Type Amazon Linux 2 AMI HVM)  
-FI            EC2 Instance (Type Amazon Linux 2 AMI HVM)  
-NAT           EC2 Instance (Type amzn-ami-upc-nat which you can find in the search textbox in Community AMI section)  
-IGW_RT        Route Table  
-NAT_RT        Route Table  
-JB_SG         Security Group  
-FI_SG         Security Group  
-NAT_SG        Security Group  
+AWS Architecture:
+
+| NAMES | Types |
+| --- | --- |
+| JB_VPC | VPC |
+| JB_IGW | Internet Gateway |
+| JB_SN_PUBLIC | Subnet |
+| JB_SN_PRIVATE | Subnet |
+| JB | EC2 Instance (Type Amazon Linux 2 AMI HVM) |
+| FI | EC2 Instance (Type Amazon Linux 2 AMI HVM) |
+| NAT | EC2 Instance (Type amzn-ami-upc-nat which you can find in the search textbox in Community AMI section) |
+| IGW_RT | Route Table |
+| NAT_RT | Route Table |
+| JB_SG | Security Group |
+| FI_SG | Security Group |
+| NAT_SG | Security Group |
+
 
 
 IMPORTANT NOTES:  
@@ -27,35 +30,31 @@ IMPORTANT NOTES:
 * the NAT instance has to be of type amzn-ami-upc-nat
 * JB & NAT reside in the public SN
 * FI resides in the private SN
-* IGW_RT is associated to the public SN
+* IGW_RT is associated to the public SN (routing to JB_IGW)
 * NAT_RT is associated to the private SN, it routes unknown traffic to the NAT instance
 
 Steps
-1) Create VPC JB_VPC
-2) Create subnets JB_SN_PUBLIC and JB_SN_PRIVATE
-3) Create Internet Gateway IGW
-4) Create 3 EC2 Instances: JB, FI & NAT
+1. Create VPC JB_VPC
+2. Create subnets JB_SN_PUBLIC and JB_SN_PRIVATE
+3. Create Internet Gateway IGW
+4. Create 3 EC2 Instances: JB, FI & NAT
       * use a public IP for JB & NAT
       * for the NAT instance, make sure Source/Dest. check is disabled (Actions/Networking/Change Source/Dest check)
-5) Edit Route Tables
-6) Edit Security Groups
+5. Edit Route Tables
+6. Edit Security Groups
+
 
 Security Groups setup  
-| JB_SG | In  SSH |
-| JB_SG | Out All |
-| FI_SG | In  SSH (from JB) |
-| FI_SG | Out HTTP/HTTPS/ICMPv4 to 0.0.0.0/0 |
-| NAT_SG | In  SSH + HTTP/HTTPS/ICMPv4 from FI |
-| NAT_SG| Out Out HTTP/HTTPS/ICMPv4 to 0.0.0.0/0 |
 
-<table>
-     <tr> <td> JB_SG <td> In <td> SSH
-     <tr> <td> JB_SG <td> Out <td> All
-     <tr> <td> FI_SG <td> In <td> SSH (from JB)
-     <tr> <td> FI_SG <td> Out <td> HTTP/HTTPS/ICMPv4 to 0.0.0.0/0
-     <tr> <td> NAT_SG <td> In <td> SSH + HTTP/HTTPS/ICMPv4 from FI
-     <tr> <td> NAT_SG <td> Out <td> HTTP/HTTPS/ICMPv4 to 0.0.0.0/0
- <table>
+| Security Group | Setup|
+| --- | --- |
+| JB_SG | In:  SSH |
+| JB_SG | Out: All |
+| FI_SG | In:  SSH (from JB) |
+| FI_SG | Out: HTTP/HTTPS/ICMPv4 to 0.0.0.0/0 |
+| NAT_SG | In:  SSH + HTTP/HTTPS/ICMPv4 from FI |
+| NAT_SG| Out: HTTP/HTTPS/ICMPv4 to 0.0.0.0/0 |
+
 
 ----------------------------------------------------  
 Testing on Ubuntu  
@@ -66,4 +65,3 @@ $ ssh-add jbkp.pem
 $ ssh -A ec2-user@<JB Public IP>      //ssh into JB acting as agent to log next into FI (private subnet)  
 $ ssh ec2-user@<FI Private IP>
 $ ping www.aws.com                    //now into FI EC2 Instance, send ping request to check internet access  
-
