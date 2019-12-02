@@ -63,5 +63,5 @@ $ chmod 600 jbkp.pem        //to avoid file permissioning issues
 $ eval $(ssh-agent -s)      //running ssh-agent to add keypair and use JB as an agent to ssh into FI without the need for keypair  
 $ ssh-add jbkp.pem          
 $ ssh -A ec2-user@JB Public IP      //ssh into JB acting as agent to log next into FI (private subnet)  
-$ ssh ec2-user@FI Private IP
+$ ssh ec2-user@FI Private IP  
 $ ping www.aws.com                    //now into FI EC2 Instance, send ping request to check internet access  
